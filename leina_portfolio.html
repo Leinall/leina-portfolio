@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leina Elansary - Game Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header Section */
+        .header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: background-color 0.5s ease;
+            
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(0, 100, 255, 0.1) 0%, transparent 60%);
+            z-index: 1;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            max-width: 500px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .profile-name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .profile-title {
+            font-size: 1.3rem;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+
+        .profile-email {
+            font-size: 1.1rem;
+            color: #888;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .profile-email:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .project-description {
+            color: #b0b0b0;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .video-container {
+            position: relative;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #000;
+            margin-bottom: 20px;
+        }
+
+        .video-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .video-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #1a1a2e, #16213e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        .video-placeholder::after {
+            content: '▶';
+            position: absolute;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .video-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .video-nav {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .video-nav.active {
+            background: #667eea;
+            transform: scale(1.2);
+        }
+
+        .prev-btn, .next-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+
+        .prev-btn:hover, .next-btn:hover {
+            background: rgba(0, 0, 0, 0.7);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .profile-card {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+
+            .profile-name {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .project-card {
+                padding: 25px;
+            }
+
+            .video-container {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-img {
+                width: 120px;
+                height: 120px;
+                font-size: 50px;
+                /* Consistent mask for circular effect */
+                mask-image: radial-gradient(circle at center, black 50%, transparent 50%);
+                -webkit-mask-image: radial-gradient(circle at center, black 50%, transparent 50%);
+            }
+
+            .profile-name {
+                font-size: 1.8rem;
+            }
+
+            .profile-title {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .project-title {
+                font-size: 1.5rem;
+            }
+
+            .video-container {
+                height: 180px;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Floating particles animation */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(102, 126, 234, 0.3);
+            border-radius: 50%;
+            animation: float 8s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        /** carsoul*/
+        .custom-carousel {
+            position: relative;
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #000;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+            .carousel-track img,
+            .carousel-track video {
+                width: 100%;
+                height: 300px;
+                object-fit: cover;
+                flex-shrink: 0;
+            }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+            transition: background 0.3s ease;
+        }
+
+            .carousel-btn:hover {
+                background: rgba(0, 0, 0, 0.8);
+            }
+
+            .carousel-btn.prev {
+                left: 10px;
+            }
+
+            .carousel-btn.next {
+                right: 10px;
+            }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+            .dot.active {
+                background: #333;
+            }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="profile-card">
+                <div>
+                    <img src="assets/leina.png" class="profile-img" />
+                </div>
+                <h1 class="profile-name">Leina Elansary</h1>
+                <p class="profile-title">Senior Game Developer 🎮</p>
+                <a href="mailto:leina.elansary@gmail.com" class="profile-email">leina.elansary@gmail.com</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Projects Section -->
+    <section class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h3 class="project-title">Time Management 🥽</h3>
+                    <p class="project-description">
+                        A VR experience using Unity game engine and Oculus quest headset.
+                        Aims to help the user in efficient time management,
+                        delivered on the client's VR platform.
+                    </p>
+                    <div class="custom-carousel">
+                        <div class="carousel-track">
+                            <img src="assets/TM0.jpg" alt="Time Management Screenshot 1" />
+                            <img src="assets/TM2.png" alt="Time Management Screenshot 2" />
+                            <video controls muted loop>
+                                <source src="assets/TM-speeded.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                                You can watch it through this link:
+                                <a href="assets/TM-speeded.mp4">Watch Video</a>
+                            </video>
+                        </div>
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <button class="carousel-btn next">&#10095;</button>
+                        <div class="carousel-dots"></div>
+                    </div>
+                    
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <h3 class="project-title">Who is responsible 🥽</h3>
+                    <p class="project-description">
+                        A VR experience using Unity game engine and Oculus Quest headset.
+                        Aims to help the user in understanding some medical malpractice laws,
+                        delivered on the client's VR platform.
+                    </p>
+                    <div class="custom-carousel">
+                        <div class="carousel-track">
+                            <img src="assets/WIR0.jpg" alt="Slide 4" />
+                            <img src="assets/WIR1.jpg" alt="Slide 5" />
+                            <video controls muted loop width="1420">
+                                <source src="assets/WIR-speeded.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                                You can watch it through this link:
+                                <a href="#">Watch Video</a>
+                            </video>
+                        </div>
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <button class="carousel-btn next">&#10095;</button>
+                        <!-- Pagination Dots -->
+                        <div class="carousel-dots"></div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <h3 class="project-title">Kingdom Of Kemet 📱</h3>
+                    <p class="project-description">
+                        Kingdom of Kemet was brought by a divergent team: history researchers, ML research assistant,
+                        game designer, game developer, and an artist.
+                        The game was designed to fill the knowledge gap in the pre-history era
+                        (before even the 7k years civilizations that were documented)
+                        and in exposing the children to know more about this mysterious era
+                        of Egypt in an amusing experience.
+                    </p>
+                    <div class="custom-carousel">
+                        <div class="carousel-track">
+                            <img src="assets/KOK0.png" alt="Slide 6" />
+                            <img src="assets/KOK0.5.png" alt="Slide 7" />
+                            <img src="assets/KOK1.png" alt="Slide 7" />
+                            <img src="assets/KOK2.png" alt="Slide 8" />
+                            <img src="assets/KOK3.png" alt="Slide 8" />
+                            <img src="assets/KOK4.png" alt="Slide 8" />
+                            <video controls muted loop width="640">
+                                <source src="assets/KOK-speeded.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                                You can watch it through this link:
+                                <a href="#">Watch Video</a>
+                            </video>
+
+                        </div>
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <button class="carousel-btn next">&#10095;</button>
+                        <!-- Pagination Dots -->
+                        <div class="carousel-dots"></div>
+                    </div>
+                </div>
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <h3 class="project-title">Schizo 🥽</h3>
+                    <p class="project-description">
+                        Theurapeutic VR experience using Unity and Oculus Quest 2.
+                        made for psychatrists to understand what it is like to have schizophrenia.
+                        It was made in Collaboration with ELRakhawy psychatric center and was presented
+                        in one of their conferences.
+                    </p>
+                    <div class="custom-carousel">
+                        <div class="carousel-track">
+                            <img src="assets/schizo1.png" alt="Slide 12" />
+                            <img src="assets/schizo1.1.png" alt="Slide 12" />
+                            <img src="assets/schizo2.1.png" alt="Slide 13" />
+                            <img src="assets/schizo2.2.png" alt="Slide 13" />
+                            <img src="assets/tutorial.png" alt="Slide 14" />
+                            <video controls muted loop width="640">
+                                <source src="assets/Schizo-Story.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                                You can watch it through this link:
+                                <a href="#">Watch Video</a>
+                            </video>
+                            <video controls muted loop width="640">
+                                <source src="assets/UI-Schizo.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                                You can watch it through this link:
+                                <a href="#">Watch Video</a>
+                            </video>
+                            <video controls muted loop width="640">
+                                <source src="assets/schizo720.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                                You can watch it through this link:
+                                <a href="#">Watch Video</a>
+                            </video>
+                        </div>
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <button class="carousel-btn next">&#10095;</button>
+                        <!-- Pagination Dots -->
+                        <div class="carousel-dots"></div>
+                    </div>
+
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <h3 class="project-title">Rodja 🥽</h3>
+                    <p class="project-description">
+                        Theurapeutic VR experience using Unity and Oculus Quest 2.
+                        Aims to help children with ADHD maintain their focus 
+                        and increase their attention span.
+                    </p>
+                    <div class="custom-carousel">
+                        <div class="carousel-track">
+                            <img src="assets/lobbyrodja.png" alt="Slide 15" />
+                            <img src="assets/rodja1.png" alt="Slide 15" />
+                            <img src="assets/rodja2.png" alt="Slide 16" />
+                            <video controls muted loop width="640">
+                                <source src="assets/RodjaUI.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                                You can watch it through this link:
+                                <a href="#">Watch Video</a>
+                            </video>
+                            <!--  <img src="assets/Thumbnail.gif" alt="Slide 17" />-->
+                        </div>
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <button class="carousel-btn next">&#10095;</button>
+                        <!-- Pagination Dots -->
+                        <div class="carousel-dots"></div>
+                    </div>
+                </div>
+
+                <!-- Project  6-->
+                <div class="project-card">
+                    <h3 class="project-title">VR Tour 🥽</h3>
+                    <p class="project-description">
+                        A VR experience using Unity and Samsung gear vr. It was made for Skoda Egypt.
+                    </p>
+                    <div class="custom-carousel">
+                        <div class="carousel-track">
+                            <img src="assets/VRTour.png" alt="Slide 18" />
+                            <video controls muted loop width="640">
+                                <source src="assets/tour-experienced-1.5x.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                                You can watch it through this link:
+                                <a href="#">Watch Video</a>
+                            </video>
+                        </div>
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <button class="carousel-btn next">&#10095;</button>
+                        <!-- Pagination Dots -->
+                        <div class="carousel-dots"></div>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="project-card">
+                    <h3 class="project-title">VR Insomnia Shooting 🥽</h3>
+                    <p class="project-description">
+                        VR Shooting game, the player is driving his car while trying to get rid of the cops,
+                        made for the company's exposure.
+                    </p>
+                    <div class="custom-carousel">
+                        <div class="carousel-track">
+                            <img src="assets/shooting1.png" alt="Slide 19" />
+                            <video controls muted loop width="640">
+                                <source src="assets/Insomnia-shooting-1.5x.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                                You can watch it through this link:
+                                <a href="#">Watch Video</a>
+                            </video>
+                            <video controls muted loop width="640">
+                                <source src="assets/insomnia-Shooting.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                                You can watch it through this link:
+                                <a href="#">Watch Video</a>
+                            </video>
+                        </div>
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <button class="carousel-btn next">&#10095;</button>
+                        <!-- Pagination Dots -->
+                        <div class="carousel-dots"></div>
+                    </div>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="project-card">
+                    <h3 class="project-title">Pirates VR Game 🥽</h3>
+                    <p class="project-description">
+                        A VR game made for samsung gear VR.
+                    </p>
+                    <p>
+                        Genre: Survival.
+                    </p>
+                    <div class="custom-carousel">
+                        <div class="carousel-track">
+                            <img src="assets/pirates1.png" alt="Slide 9" />
+                            <img src="assets/pirates3.png" alt="Slide 10" />
+                            <img src="assets/pirates5.png" alt="Slide 11" />
+                        </div>
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <button class="carousel-btn next">&#10095;</button>
+                        <!-- Pagination Dots -->
+                        <div class="carousel-dots"></div>
+                    </div>
+
+                </div>
+
+                <!-- Project 9 -->
+                <div class="project-card">
+                    <h3 class="project-title">Little Mandooz 📱</h3>
+                    <p class="project-description">
+                        A mind-bending puzzle game that challenges players with increasingly complex levels.
+                        Features beautiful hand-drawn artwork, relaxing soundtrack, and innovative mechanics
+                        that keep players engaged for hours.
+                    </p>
+                    <div class="custom-carousel">
+                        <div class="carousel-track">
+                            <img src="assets/mandooz1.png" alt="Slide 20" />
+                            <img src="assets/mandooz2.png" alt="Slide 21" />
+                            <img src="assets/mandooz3.png" alt="Slide 22" />
+                        </div>
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <button class="carousel-btn next">&#10095;</button>
+                        <!-- Pagination Dots -->
+                        <div class="carousel-dots"></div>
+                    </div>
+                </div>
+                <!-- Project 9 -->
+                <div class="project-card">
+                    <h3 class="project-title">Chronoka 🥽</h3>
+                    <p class="project-description">
+                        A mind-bending puzzle game that challenges players with increasingly complex levels.
+                        Features beautiful hand-drawn artwork, relaxing soundtrack, and innovative mechanics
+                        that keep players engaged for hours. Made for HTC vive headset.
+                    </p>
+                    <div class="custom-carousel">
+                        <div class="carousel-track">
+                            <img src="assets/chronoka1.png" alt="Slide 23" />
+                            <img src="assets/chronoka2.png" alt="Slide 24" />
+                            <video controls muted loop width="640">
+                                <source src="assets/chronoka-1.5x.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                                You can watch it through this link:
+                                <a href="#">Watch Video</a>
+                            </video>
+
+                        </div>
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <button class="carousel-btn next">&#10095;</button>
+                        <!-- Pagination Dots -->
+                        <div class="carousel-dots"></div>
+                    </div>
+                </div>
+                <!-- Project 10 -->
+                <div class="project-card">
+                    <h3 class="project-title">Al Ketab elnateq 📱</h3>
+                    <p class="project-description">
+                        A mind-bending puzzle game that challenges players with increasingly complex levels.
+                        Features beautiful hand-drawn artwork, relaxing soundtrack, and innovative mechanics
+                        that keep players engaged for hours.
+                    </p>
+                    <div class="custom-carousel">
+                        <div class="carousel-track">
+                            <video controls muted loop width="640">
+                                <source src="assets/AlketabElnateq-speeded.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                                You can watch it through this link:
+                                <a href="#">Watch Video</a>
+                            </video>
+                        </div>
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <button class="carousel-btn next">&#10095;</button>
+                        <!-- Pagination Dots
+                        <div class="carousel-dots"></div> -->
+
+                    </div>
+
+                </div>
+                <!-- Project 11 -->
+                <div class="project-card">
+                    <h3 class="project-title">Basous War (MultiPlayer)📱</h3>
+                    <p class="project-description">
+                        A mobile game Moba like was clone originally from 7arb el salateen,
+                        with different details and back story.
+                    </p>
+                    <div class="custom-carousel">
+                        <div class="carousel-track">
+                            <img src="assets/basous1.png" />
+                            <video controls muted loop width="640">
+                                <source src="assets/BasousWar.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                                You can watch it through this link:
+                                <a href="#">Watch Video</a>
+                            </video>
+                        </div>
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <button class="carousel-btn next">&#10095;</button>
+                        <!-- Pagination Dots-->
+                        <div class="carousel-dots"></div>
+
+                    </div>
+                </div>
+
+                <!-- Project 12 -->
+                <div class="project-card">
+                    <h3 class="project-title">MultiPlayer VR game 🥽</h3>
+                    <p class="project-description"> 
+                        A Mini VR game made with Unet - two players chase each other in the map,
+                        they have a fight till one wins, was done using Unity game engine and HTC vive headset.
+                    </p>
+                    <div class="custom-carousel">
+                        <div class="carousel-track">
+                            <img src="assets/multi1.png" alt="Slide 26" />
+                            <img src="assets/multi-2.png" alt="Slide 26" />
+                            <img src="assets/multi-3.png" alt="Slide 26" />
+                            <img src="assets/multi-4.png" alt="Slide 26" />
+                        </div>
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <button class="carousel-btn next">&#10095;</button>
+                        <!-- Pagination Dots -->
+                        <div class="carousel-dots"></div>
+                    </div>
+                </div>
+
+
+                <!-- Project 13 -->
+                <div class="project-card">
+                    <h3 class="project-title">Math G2 📱</h3>
+                    <p class="project-description">
+                        Educational mobile App to teach Math for Grade 2 in fun and interactive way.
+                    </p>
+                    <div class="custom-carousel">
+                        <div class="carousel-track">
+                            <video controls muted loop width="640">
+                                <source src="assets/Math-G2.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                                You can watch it through this link:
+                                <a href="#">Watch Video</a>
+                            </video>
+                        </div>
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <button class="carousel-btn next">&#10095;</button>
+                        <!-- Pagination Dots
+                        <div class="carousel-dots"></div>-->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="projects">
+        <div class="container">
+            <h2 class="section-title">Side Tasks</h2>
+            <div class="projects-grid">
+
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h3 class="project-title">Card's game 💻</h3>
+                    <p class="project-description">
+                        An epic space exploration game featuring stunning visuals and immersive gameplay.
+                        Players navigate through different galaxies, collect resources, and battle alien creatures
+                        in this action-packed adventure.
+                    </p>
+                    <div class="custom-carousel">
+                        <div class="carousel-track">
+                            <video controls muted loop width="640">
+                                <source src="assets/lobahcardsgame.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                                You can watch it through this link:
+                                <a href="#">Watch Video</a>
+                            </video>
+                        </div>
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <button class="carousel-btn next">&#10095;</button>
+                        <!-- Pagination Dots
+                        <div class="carousel-dots"></div>
+                        -->
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <h3 class="project-title">Inventory Chest</h3>
+                    <p class="project-description">
+                        A fast-paced endless runner game with smooth animations and challenging obstacles.
+                        Features multiple character skins, power-ups, and leaderboards to compete with friends.
+                        Built with optimized performance for mobile devices.
+                    </p>
+                    <div class="custom-carousel">
+                        <div class="carousel-track">
+                            <video controls muted loop width="640">
+                                <source src="assets/Inventory.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                                You can watch it through this link:
+                                <a href="#">Watch Video</a>
+                            </video>
+                        </div>
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <button class="carousel-btn next">&#10095;</button>
+                        <!-- Pagination Dots
+                        <div class="carousel-dots"></div>
+                        -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="projects">
+        <div class="container">
+            <h2 class="section-title">Research-Related Projects</h2>
+            <div class="projects-grid">
+
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h3 class="project-title">Emodev 🖥️</h3>
+                    <p class="project-description">
+                        our graduation project, was a research project implemented as a desktop and mobile. We worked with Happy World School for children with autism. Our work was based on their needs, being able to improve the emotional intelligence of children, but the app. was not tested on children. It is challenging to find an authorized place for testing autistic children in Egypt.
+                        Video links:
+                        Evaluation: https://youtu.be/MMZqkn2cjgw
+                        Improvement part: https://youtu.be/UCX-_SQUSdI
+                    </p>
+                    <div class="custom-carousel">
+                        <div class="carousel-track">
+                            <img src="assets/autism0.png" />
+                            <img src="assets/autism0.5.png" />
+                            <img src="assets/autism1.png" />
+                            <img src="assets/autism2.png" />
+                            <img src="assets/autism3.png" />
+                        </div>
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <button class="carousel-btn next">&#10095;</button>
+                        <!-- Pagination Dots -->
+                        <div class="carousel-dots"></div>
+
+                    </div>
+                </div>
+                <div></div>
+                </div>
+            </div>
+    </section>
+
+    <script>
+        // Particle animation
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Function to create dots
+        function createDots(carousel) {
+            const dotsContainer = carousel.querySelector('.carousel-dots');
+            const slides = carousel.querySelector('.carousel-track').children;
+
+            if (!dotsContainer) {
+                console.error('Dots container not found in carousel:', carousel);
+                return;
+            }
+
+            // Create dots
+            for (let i = 0; i < slides.length; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        // Function to update dots
+        function updateDots(carousel) {
+            const dots = carousel.querySelectorAll('.dot');
+            const track = carousel.querySelector('.carousel-track');
+            const slides = track.children;
+            const currentIndex = getCurrentIndex(carousel);
+
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === currentIndex) dot.classList.add('active');
+            });
+        }
+
+        // Function to get the current index of the carousel
+        function getCurrentIndex(carousel) {
+            const track = carousel.querySelector('.carousel-track');
+            const transform = track.style.transform;
+            if (!transform) return 0;
+            const currentSlide = Math.round(parseFloat(transform.replace('translateX(', '').replace('%)', '')) / -100);
+            return currentSlide;
+        }
+
+        // Function to update the carousel
+        function updateCarousel() {
+            // Currently, this function is empty. You can add logic here if needed.
+        }
+
+        // Initialize carousels
+        document.addEventListener('DOMContentLoaded', function () {
+            const carousels = document.querySelectorAll('.custom-carousel');
+
+            carousels.forEach((carousel) => {
+                const track = carousel.querySelector('.carousel-track');
+                const slides = track.children;
+                const nextButton = carousel.querySelector('.carousel-btn.next');
+                const prevButton = carousel.querySelector('.carousel-btn.prev');
+                const dotsContainer = carousel.querySelector('.carousel-dots');
+
+                // Skip if essential parts are missing
+                if (!track || slides.length === 0 || !nextButton || !prevButton || !dotsContainer) {
+                    console.warn('Skipping invalid carousel:', carousel);
+                    return;
+                }
+
+                createDots(carousel);
+
+                // Add event listeners to buttons
+                nextButton.addEventListener('click', () => {
+                    const currentIndex = getCurrentIndex(carousel);
+                    const nextIndex = (currentIndex + 1) % slides.length;
+                    track.style.transform = `translateX(-${nextIndex * 100}%)`;
+                    updateDots(carousel);
+                });
+
+                prevButton.addEventListener('click', () => {
+                    const currentIndex = getCurrentIndex(carousel);
+                    const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+                    track.style.transform = `translateX(-${prevIndex * 100}%)`;
+                    updateDots(carousel);
+                });
+            });
+
+            // Add event listener for window resize
+            window.addEventListener('resize', updateCarousel);
+
+            // Call other initialization functions here
+            createParticles();
+        });
+    </script>
+</body>
+</html>
