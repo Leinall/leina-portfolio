@@ -15,7 +15,7 @@
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
             color: #ffffff;
-            line-height: 1.6;
+            line-height: 1.6; /*1.6*/
             overflow-x: hidden;
         }
 
@@ -26,7 +26,7 @@
         }
         /* Header Section */
         .header {
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -106,9 +106,28 @@
             transform: translateY(-2px);
         }
 
+        .cv-download-btn {
+            font-size: 1rem;
+            color: #888;
+            text-decoration: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 1000;
+        }
+
+        .cv-download-btn:hover {
+                background-color: #005fa3;
+                transform: scale(1.08);
+        }
+
         /* Projects Section */
         .projects {
-            padding: 80px 0;
+            padding: 80px 0; /*80px*/
             background: rgba(0, 0, 0, 0.3);
         }
 
@@ -434,9 +453,17 @@
                 <h1 class="profile-name">Leina Elansary</h1>
                 <p class="profile-title">Senior Game Developer 🎮</p>
                 <a href="mailto:leina.elansary@gmail.com" class="profile-email">leina.elansary@gmail.com</a>
+
+                <a href="assets/LeinaElansaryResume2025.docx" download class="cv-download-btn" title="Download CV">
+                    📄 Download Resume
+                </a>
+
             </div>
         </div>
+        
     </header>
+
+    
 
     <!-- Projects Section -->
     <section class="projects">
@@ -445,7 +472,7 @@
             <div class="projects-grid">
 
                 <!-- Project 1 -->
-                <div class="project-card">
+                <div class="project-card" id="TimeManagement">
                     <h3 class="project-title">Time Management 🥽</h3>
                     <p class="project-description">
                         A VR experience using Unity game engine and Oculus quest headset.
@@ -467,11 +494,11 @@
                         <button class="carousel-btn next">&#10095;</button>
                         <div class="carousel-dots"></div>
                     </div>
-                    
+
                 </div>
 
                 <!-- Project 2 -->
-                <div class="project-card">
+                <div class="project-card" id="WhoisResponsible">
                     <h3 class="project-title">Who is responsible 🥽</h3>
                     <p class="project-description">
                         A VR experience using Unity game engine and Oculus Quest headset.
@@ -496,7 +523,7 @@
                     </div>
                 </div>
                 <!-- Project 3 -->
-                <div class="project-card">
+                <div class="project-card" id="KingdomofKemet">
                     <h3 class="project-title">Kingdom Of Kemet 📱</h3>
                     <p class="project-description">
                         Kingdom of Kemet was brought by a divergent team: history researchers, ML research assistant,
@@ -529,7 +556,7 @@
                     </div>
                 </div>
                 <!-- Project 4 -->
-                <div class="project-card">
+                <div class="project-card" id="Schizo">
                     <h3 class="project-title">Schizo 🥽</h3>
                     <p class="project-description">
                         Theurapeutic VR experience using Unity and Oculus Quest 2.
@@ -573,10 +600,10 @@
 
                 <!-- Project 5 -->
                 <div class="project-card">
-                    <h3 class="project-title">Rodja 🥽</h3>
+                    <h3 class="project-title" id="Rodja">Rodja 🥽</h3>
                     <p class="project-description">
                         Theurapeutic VR experience using Unity and Oculus Quest 2.
-                        Aims to help children with ADHD maintain their focus 
+                        Aims to help children with ADHD maintain their focus
                         and increase their attention span.
                     </p>
                     <div class="custom-carousel">
@@ -696,7 +723,7 @@
                     </div>
                 </div>
                 <!-- Project 9 -->
-                <div class="project-card">
+                <div class="project-card" id="chronoka">
                     <h3 class="project-title">Chronoka 🥽</h3>
                     <p class="project-description">
                         A mind-bending puzzle game that challenges players with increasingly complex levels.
@@ -747,7 +774,7 @@
 
                 </div>
                 <!-- Project 11 -->
-                <div class="project-card">
+                <div class="project-card" id="BasousWar">
                     <h3 class="project-title">Basous War (MultiPlayer)📱</h3>
                     <p class="project-description">
                         A mobile game Moba like was clone originally from 7arb el salateen,
@@ -774,7 +801,7 @@
                 <!-- Project 12 -->
                 <div class="project-card">
                     <h3 class="project-title">MultiPlayer VR game 🥽</h3>
-                    <p class="project-description"> 
+                    <p class="project-description">
                         A Mini VR game made with Unet - two players chase each other in the map,
                         they have a fight till one wins, was done using Unity game engine and HTC vive headset.
                     </p>
@@ -794,7 +821,7 @@
 
 
                 <!-- Project 13 -->
-                <div class="project-card">
+                <div class="project-card" id="MathG2">
                     <h3 class="project-title">Math G2 📱</h3>
                     <p class="project-description">
                         Educational mobile App to teach Math for Grade 2 in fun and interactive way.
@@ -821,7 +848,7 @@
 
     <section class="projects">
         <div class="container">
-            <h2 class="section-title">Side Tasks</h2>
+            <h2 class="section-title">Side Quests</h2>
             <div class="projects-grid">
 
                 <!-- Project 1 -->
@@ -908,8 +935,8 @@
                     </div>
                 </div>
                 <div></div>
-                </div>
             </div>
+        </div>
     </section>
 
     <script>
