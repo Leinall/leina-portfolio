@@ -15,7 +15,7 @@
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
             color: #ffffff;
-            line-height: 1.6; /*1.6*/
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
@@ -24,28 +24,56 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+
+        /* Navigation */
+        .nav-links {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .projectsbtn {
+            font-size: 1.1rem;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 24px;
+            background: rgba(102, 126, 234, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 25px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+        }
+
+            .projectsbtn:hover {
+                background: rgba(102, 126, 234, 0.4);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+            }
+
         /* Header Section */
         .header {
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
             transition: background-color 0.5s ease;
-            
         }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(0, 100, 255, 0.1) 0%, transparent 60%);
-            z-index: 1;
-        }
+            .header::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: radial-gradient(circle at 30% 50%, rgba(0, 100, 255, 0.1) 0%, transparent 60%);
+                z-index: 1;
+            }
 
         .profile-card {
             background: rgba(255, 255, 255, 0.05);
@@ -101,10 +129,10 @@
             transition: all 0.3s ease;
         }
 
-        .profile-email:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
+            .profile-email:hover {
+                background: rgba(255, 255, 255, 0.2);
+                transform: translateY(-2px);
+            }
 
         .cv-download-btn {
             font-size: 1rem;
@@ -120,14 +148,14 @@
             z-index: 1000;
         }
 
-        .cv-download-btn:hover {
+            .cv-download-btn:hover {
                 background-color: #005fa3;
                 transform: scale(1.08);
-        }
+            }
 
         /* Projects Section */
         .projects {
-            padding: 80px 0; /*80px*/
+            padding: 80px 0;
             background: rgba(0, 0, 0, 0.3);
         }
 
@@ -159,10 +187,10 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-        }
+            .project-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            }
 
         .project-title {
             font-size: 1.8rem;
@@ -210,12 +238,12 @@
             position: relative;
         }
 
-        .video-placeholder::after {
-            content: '▶';
-            position: absolute;
-            font-size: 3rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
+            .video-placeholder::after {
+                content: '▶';
+                position: absolute;
+                font-size: 3rem;
+                color: rgba(255, 255, 255, 0.7);
+            }
 
         .video-controls {
             display: flex;
@@ -233,10 +261,10 @@
             transition: all 0.3s ease;
         }
 
-        .video-nav.active {
-            background: #667eea;
-            transform: scale(1.2);
-        }
+            .video-nav.active {
+                background: #667eea;
+                transform: scale(1.2);
+            }
 
         .prev-btn, .next-btn {
             position: absolute;
@@ -262,13 +290,23 @@
             right: 10px;
         }
 
-        .prev-btn:hover, .next-btn:hover {
-            background: rgba(0, 0, 0, 0.7);
-            transform: translateY(-50%) scale(1.1);
-        }
+            .prev-btn:hover, .next-btn:hover {
+                background: rgba(0, 0, 0, 0.7);
+                transform: translateY(-50%) scale(1.1);
+            }
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .nav-links {
+                top: 20px;
+                right: 20px;
+            }
+
+            .projectsbtn {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+
             .profile-card {
                 padding: 30px 20px;
                 margin: 20px;
@@ -301,7 +339,6 @@
                 width: 120px;
                 height: 120px;
                 font-size: 50px;
-                /* Consistent mask for circular effect */
                 mask-image: radial-gradient(circle at center, black 50%, transparent 50%);
                 -webkit-mask-image: radial-gradient(circle at center, black 50%, transparent 50%);
             }
@@ -357,18 +394,22 @@
                 transform: translateY(100vh) rotate(0deg);
                 opacity: 0;
             }
+
             10% {
                 opacity: 1;
             }
+
             90% {
                 opacity: 1;
             }
+
             100% {
                 transform: translateY(-100vh) rotate(360deg);
                 opacity: 0;
             }
         }
-        /** carsoul*/
+
+        /* Carousel styles */
         .custom-carousel {
             position: relative;
             width: 100%;
@@ -443,6 +484,11 @@
 <body>
     <div class="particles" id="particles"></div>
 
+    <!-- Navigation -->
+    <div class="nav-links">
+        <a href="#Projects" class="projectsbtn">Projects</a>
+    </div>
+
     <!-- Header Section -->
     <header class="header">
         <div class="container">
@@ -457,17 +503,13 @@
                 <a href="assets/LeinaElansaryResume2025.docx" download class="cv-download-btn" title="Download CV">
                     📄 Download Resume
                 </a>
-
             </div>
         </div>
-        
     </header>
-
-    
 
     <!-- Projects Section -->
     <section class="projects">
-        <div class="container">
+        <div class="container" id="Projects">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
 
@@ -494,7 +536,6 @@
                         <button class="carousel-btn next">&#10095;</button>
                         <div class="carousel-dots"></div>
                     </div>
-
                 </div>
 
                 <!-- Project 2 -->
@@ -518,10 +559,10 @@
                         </div>
                         <button class="carousel-btn prev">&#10094;</button>
                         <button class="carousel-btn next">&#10095;</button>
-                        <!-- Pagination Dots -->
                         <div class="carousel-dots"></div>
                     </div>
                 </div>
+
                 <!-- Project 3 -->
                 <div class="project-card" id="KingdomofKemet">
                     <h3 class="project-title">Kingdom Of Kemet 📱</h3>
@@ -706,9 +747,8 @@
                 <div class="project-card">
                     <h3 class="project-title">Little Mandooz 📱</h3>
                     <p class="project-description">
-                        A mind-bending puzzle game that challenges players with increasingly complex levels.
-                        Features beautiful hand-drawn artwork, relaxing soundtrack, and innovative mechanics
-                        that keep players engaged for hours.
+                        An android mobile game, it is a puzzle game. The goal is to let the big mandoo reaches his little mandooz.
+                        The game consists of 30 different levels.
                     </p>
                     <div class="custom-carousel">
                         <div class="carousel-track">
@@ -726,9 +766,8 @@
                 <div class="project-card" id="chronoka">
                     <h3 class="project-title">Chronoka 🥽</h3>
                     <p class="project-description">
-                        A mind-bending puzzle game that challenges players with increasingly complex levels.
-                        Features beautiful hand-drawn artwork, relaxing soundtrack, and innovative mechanics
-                        that keep players engaged for hours. Made for HTC vive headset.
+                        A mind-bending VR game that takes you to the old Egypt, the land of mystery and magic, you are a magician 
+                        who goes back in time and aims to save the world. Made for HTC vive headset.
                     </p>
                     <div class="custom-carousel">
                         <div class="carousel-track">
@@ -752,9 +791,7 @@
                 <div class="project-card">
                     <h3 class="project-title">Al Ketab elnateq 📱</h3>
                     <p class="project-description">
-                        A mind-bending puzzle game that challenges players with increasingly complex levels.
-                        Features beautiful hand-drawn artwork, relaxing soundtrack, and innovative mechanics
-                        that keep players engaged for hours.
+                        A mobile app for children's eductaion, that teaches them about numbers ,letters and the names of different objects.
                     </p>
                     <div class="custom-carousel">
                         <div class="carousel-track">
